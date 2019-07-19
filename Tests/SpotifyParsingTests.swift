@@ -13,15 +13,17 @@ class SpotifyParsingTests: XCTestCase {
 
     static func dataForJSONFileNamed(string: String) -> Data {
 
-        let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let bundleURL = URL(fileURLWithPath: "JSONMocks.bundle", relativeTo: currentDirectoryURL)
-
-        if let bundle = Bundle(url: bundleURL) {
+        let podBundle = Bundle(for: self.classForCoder())
+        if let resourceBundleURL = podBundle.url(forResource: "SpotifyWebAPIJSONMocks", withExtension: "bundle") {
+            // find mock JSON files if bundled using Cocoapods:
+            let bundle = Bundle(url: resourceBundleURL)!
             let jsonFileURL = bundle.url(forResource: string, withExtension: "json")!
             let jsonFileData = try! Data(contentsOf: jsonFileURL)
             return jsonFileData
         }
         else {
+            // find mock JSON files if using Swift Package Manager:
+            let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let fileURL = currentDirectoryURL
                 .appendingPathComponent("Tests", isDirectory: true)
                 .appendingPathComponent("JSONMocks", isDirectory: true)
@@ -31,6 +33,7 @@ class SpotifyParsingTests: XCTestCase {
             return jsonFileData
         }
     }
+
 
     static let searchResultsData: Data = {
         return dataForJSONFileNamed(string: "search_results_duranduran")
