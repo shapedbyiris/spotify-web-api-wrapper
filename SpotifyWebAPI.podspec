@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "SpotifyWebAPI"
-  spec.version      = "0.2.4"
+  spec.version      = "0.2.5"
   spec.summary      = "Wrapping the Spotify Web API"
   spec.description  = <<-DESC
   Wrapping the Spotify Web API
@@ -14,7 +14,7 @@ Pod::Spec.new do |spec|
   spec.author       = { "Ariel Elkin" => "ariel@shapedbyiris.com" }
   spec.platform     = :ios, :macos
   spec.ios.deployment_target = "10.0"
-  spec.osx.deployment_target = "10.9"
+  spec.osx.deployment_target = "10.10"
   spec.swift_version = '5.0'
   spec.source_files  = "Sources/*.swift"
 
