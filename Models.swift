@@ -9,9 +9,9 @@
 import Foundation
 
 public struct Album {
-    let name: String
-    let artists: [Artist]
-    let spotifyID: String
+    public let name: String
+    public let artists: [Artist]
+    public let spotifyID: String
 }
 
 extension Album: Codable {
@@ -23,8 +23,8 @@ extension Album: Codable {
 }
 
 public struct Artist {
-    let name: String
-    let spotifyID: String
+    public let name: String
+    public let spotifyID: String
 }
 
 extension Artist: Codable {
