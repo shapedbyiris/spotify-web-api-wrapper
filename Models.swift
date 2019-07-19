@@ -1,5 +1,5 @@
 //
-//  MusicMetadataModels.swift
+//  Models.swift
 //  HTTPClient
 //
 //  Created by Ariel Elkin on 18/07/2019.
@@ -11,7 +11,7 @@ import Foundation
 public struct Album {
     let name: String
     let artists: [Artist]
-    let spotifyID: String?
+    let spotifyID: String
 }
 
 extension Album: Codable {
@@ -24,7 +24,7 @@ extension Album: Codable {
 
 public struct Artist {
     let name: String
-    let spotifyID: String?
+    let spotifyID: String
 }
 
 extension Artist: Codable {
