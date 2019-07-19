@@ -7,14 +7,15 @@
 //
 
 import XCTest
+@testable import SpotifyWebAPI
 
 class SpotifyParsingTests: XCTestCase {
 
     static func dataForJSONFileNamed(string: String) -> Data {
-        let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let bundleURL = URL(fileURLWithPath: "JSONMocks.bundle", relativeTo: currentDirectoryURL)
-        let bundle = Bundle(url: bundleURL)!
-        let jsonFileURL = bundle.url(forResource: string, withExtension: "json")!
+        let podBundle = Bundle(for: self.classForCoder())
+        let resourceBundleURL = podBundle.url(forResource: "SpotifyWebAPIJSONMocks", withExtension: "bundle")!
+        let resourceBundle = Bundle(url: resourceBundleURL)!
+        let jsonFileURL = resourceBundle.url(forResource: string, withExtension: "json")!
         let jsonFileData = try! Data(contentsOf: jsonFileURL)
         return jsonFileData
     }

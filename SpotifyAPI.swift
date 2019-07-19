@@ -8,17 +8,7 @@
 
 import Foundation
 
-struct SpotifySearchRequest: APIRequest {
-    let request: URLRequest
-    typealias SuccessfulResponseDataType = SpotifySearchResult
-    typealias ErrorResponseDataType = SpotifyError
-
-    init(searchQuery: String, token: String) {
-        self.request = URLRequest(spotifySearch: searchQuery, token: token)
-    }
-}
-
-struct SpotifyError: Codable, Error {
+public struct SpotifyError: Codable, Error {
     var message: String {
         return error.message
     }
@@ -33,7 +23,7 @@ struct SpotifyError: Codable, Error {
     }
 }
 
-struct SpotifySearchResult: Codable {
+public struct SpotifySearchResult: Codable {
     let albums: [Album]
     let artists: [Artist]
 
@@ -41,7 +31,7 @@ struct SpotifySearchResult: Codable {
         let items: [T]
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let results = try decoder.container(keyedBy: CodingKeys.self)
 
         let albumsContainer = try results.decode(SpotifyPagingObject<Album>.self, forKey: .albums)

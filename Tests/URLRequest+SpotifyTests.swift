@@ -7,13 +7,13 @@
 //
 
 import XCTest
+@testable import SpotifyWebAPI
 
 class URLRequestPlusSpotifyTests: XCTestCase {
 
     let token = "token"
 
     func testSearchRequestBuildsCorrectly() {
-
         let duranDuranSearchRequest = URLRequest.init(spotifySearch: "duran duran", token: token)
         XCTAssert(duranDuranSearchRequest.httpMethod == "GET")
         XCTAssert(duranDuranSearchRequest.url == URL(string: "https://api.spotify.com/v1/search?q=duran%20duran&type=playlist,artist,album,track"))

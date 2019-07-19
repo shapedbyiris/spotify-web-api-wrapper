@@ -19,6 +19,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "*.swift"
 
   spec.test_spec 'Tests' do |test_spec|
-    test_spec.source_files = "Tests/*"
+    test_spec.source_files = "Tests/*.swift"
+    test_spec.resource_bundle = { "SpotifyWebAPIJSONMocks" => "Tests/JSONMocks/*" }
   end
 end

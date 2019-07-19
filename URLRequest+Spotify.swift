@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension URLRequest {
+public extension URLRequest {
 
     private static var spotifyBaseURL = URL(string: "https://api.spotify.com/v1/")
 
