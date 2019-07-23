@@ -7,9 +7,10 @@
 //
 
 import XCTest
+
 @testable import SpotifyWebAPI
 
-class URLRequestPlusSpotifyTests: XCTestCase {
+class URLRequestPlusSpotifyTests: XCTestCase { //swiftlint:disable line_length
 
     let token = "token"
 

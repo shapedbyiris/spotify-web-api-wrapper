@@ -7,9 +7,10 @@
 //
 
 import XCTest
+
 @testable import SpotifyWebAPI
 
-class SpotifyParsingTests: XCTestCase {
+class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try line_length
 
     static func dataForJSONFileNamed(string: String) -> Data {
 
@@ -20,8 +21,7 @@ class SpotifyParsingTests: XCTestCase {
             let jsonFileURL = bundle.url(forResource: string, withExtension: "json")!
             let jsonFileData = try! Data(contentsOf: jsonFileURL)
             return jsonFileData
-        }
-        else {
+        } else {
             // find mock JSON files if using Swift Package Manager:
             let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
             let fileURL = currentDirectoryURL
@@ -33,7 +33,6 @@ class SpotifyParsingTests: XCTestCase {
             return jsonFileData
         }
     }
-
 
     static let searchResultsData: Data = {
         return dataForJSONFileNamed(string: "search_results_duranduran")
@@ -78,7 +77,7 @@ class SpotifyParsingTests: XCTestCase {
             XCTAssert(error.message == "The access token expired")
             XCTAssert(error.status == 401)
         } catch {
-            XCTFail()
+            XCTFail("Error should parse without fail")
         }
     }
 }
