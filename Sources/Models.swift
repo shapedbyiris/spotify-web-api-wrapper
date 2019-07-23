@@ -57,7 +57,7 @@ public struct Track: SpotifyEntity {
     private let miliseconds: Int
     public let spotifyURI: String
 
-    var duration: TimeInterval {
+    public var duration: TimeInterval {
         return TimeInterval(miliseconds) / 1000.0
     }
 }
