@@ -26,6 +26,8 @@ public struct SpotifyError: Codable, Error {
 public struct SpotifySearchResult: Codable {
     let albums: [Album]
     let artists: [Artist]
+    let tracks: [Track]
+    let playlists: [Playlist]
 
     private struct SpotifyPagingObject<T: Codable>: Codable {
         let items: [T]
@@ -34,10 +36,16 @@ public struct SpotifySearchResult: Codable {
     public init(from decoder: Decoder) throws {
         let results = try decoder.container(keyedBy: CodingKeys.self)
 
+        let artistsContainer = try results.decode(SpotifyPagingObject<Artist>.self, forKey: .artists)
+        artists = artistsContainer.items
+
         let albumsContainer = try results.decode(SpotifyPagingObject<Album>.self, forKey: .albums)
         albums = albumsContainer.items
 
-        let artistsContainer = try results.decode(SpotifyPagingObject<Artist>.self, forKey: .artists)
-        artists = artistsContainer.items
+        let tracksContainer = try results.decode(SpotifyPagingObject<Track>.self, forKey: .tracks)
+        tracks = tracksContainer.items
+
+        let playlistContainer = try results.decode(SpotifyPagingObject<Playlist>.self, forKey: .playlists)
+        playlists = playlistContainer.items
     }
 }

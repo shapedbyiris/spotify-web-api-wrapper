@@ -8,28 +8,66 @@
 
 import Foundation
 
-public struct Album {
+public protocol SpotifyEntity {
+    var spotifyURI: String { get }
+}
+
+public struct Artist: SpotifyEntity {
+    public let name: String
+    public let spotifyURI: String
+}
+
+extension Artist: Codable {
+    enum CodingKeys: String, CodingKey {
+        case name
+        case spotifyURI = "uri"
+    }
+}
+
+public struct Album: SpotifyEntity {
     public let name: String
     public let spotifyArtists: [Artist]
-    public let spotifyID: String
+    public let spotifyURI: String
 }
 
 extension Album: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case spotifyArtists = "artists"
-        case spotifyID = "id"
+        case spotifyURI = "uri"
     }
 }
 
-public struct Artist {
+public struct Playlist: SpotifyEntity {
     public let name: String
-    public let spotifyID: String
+    public let spotifyURI: String
 }
 
-extension Artist: Codable {
+extension Playlist: Codable {
     enum CodingKeys: String, CodingKey {
         case name
-        case spotifyID = "id"
+        case spotifyURI = "uri"
+    }
+}
+
+public struct Track: SpotifyEntity {
+    public let title: String
+    public let artist: [Artist]
+    public let album: Album
+    private let miliseconds: Int
+    public let spotifyURI: String
+
+    var duration: TimeInterval {
+        return TimeInterval(miliseconds) / 1000.0
+    }
+}
+
+extension Track: Codable {
+    enum CodingKeys: String, CodingKey {
+        case title = "name"
+        case artist = "artists"
+        case album = "album"
+        case miliseconds = "duration_ms"
+        case spotifyURI = "uri"
     }
 }
