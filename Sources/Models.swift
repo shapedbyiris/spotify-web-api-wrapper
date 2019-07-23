@@ -10,14 +10,14 @@ import Foundation
 
 public struct Album {
     public let name: String
-    public let artists: [Artist]
+    public let spotifyArtists: [Artist]
     public let spotifyID: String
 }
 
 extension Album: Codable {
     enum CodingKeys: String, CodingKey {
         case name
-        case artists
+        case spotifyArtists = "artists"
         case spotifyID = "id"
     }
 }

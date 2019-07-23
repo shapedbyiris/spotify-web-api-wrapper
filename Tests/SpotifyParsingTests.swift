@@ -49,15 +49,15 @@ class SpotifyParsingTests: XCTestCase {
             XCTAssert(results.albums.count == 20)
 
             let firstAlbum = results.albums[0]
-            XCTAssert(firstAlbum.artists[0].name == "Duran Duran")
-            XCTAssert(firstAlbum.artists[0].spotifyID == "0lZoBs4Pzo7R89JM9lxwoT")
+            XCTAssert(firstAlbum.spotifyArtists[0].name == "Duran Duran")
+            XCTAssert(firstAlbum.spotifyArtists[0].spotifyID == "0lZoBs4Pzo7R89JM9lxwoT")
             XCTAssert(firstAlbum.name == "Rio [Collector\'s Edition]")
             XCTAssert(firstAlbum.spotifyID == "02tfQwJSOLP77oCd9U8bqm")
 
             let nineteenthAlbum = results.albums[18]
             XCTAssert(nineteenthAlbum.name == "Sana Doğru")
-            XCTAssert(nineteenthAlbum.artists[0].name == "Bora Duran")
-            XCTAssert(nineteenthAlbum.artists[0].spotifyID == "0W0qg2fjQVk63h44Zdn4hI")
+            XCTAssert(nineteenthAlbum.spotifyArtists[0].name == "Bora Duran")
+            XCTAssert(nineteenthAlbum.spotifyArtists[0].spotifyID == "0W0qg2fjQVk63h44Zdn4hI")
             XCTAssert(nineteenthAlbum.spotifyID == "5flg28yvPpynO6NVnZV5LH")
 
             let fifthArtist = results.artists[4]
