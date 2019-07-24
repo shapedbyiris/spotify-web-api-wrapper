@@ -1,6 +1,6 @@
 //
 //  SpotifyParsingTests.swift
-//  HTTPClientTests
+//  SpotifyWebAPIWrapperTests
 //
 //  Created by Ariel Elkin on 18/07/2019.
 //  Copyright © 2019 IRIS. All rights reserved.

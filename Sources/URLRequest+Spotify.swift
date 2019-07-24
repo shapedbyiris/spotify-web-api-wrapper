@@ -1,6 +1,6 @@
 //
 //  URLRequest+Spotify.swift
-//  SpotifyClient
+//  SpotifyWebAPIWrapper
 //
 //  Created by Ariel Elkin on 17/07/2019.
 //  Copyright © 2019 IRIS. All rights reserved.
