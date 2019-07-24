@@ -23,7 +23,7 @@ public struct SpotifyError: Codable, Error {
     }
 }
 
-public struct SpotifyPagingObject<T: Codable & SpotifyEntity>: Codable {
+public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
     let items: [T]
 
     private struct AlbumContainer: Codable {

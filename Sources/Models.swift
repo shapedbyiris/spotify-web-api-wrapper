@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SpotifyEntity {
+public protocol SpotifyEntity: Codable {
     var spotifyURI: String { get }
 }
 
