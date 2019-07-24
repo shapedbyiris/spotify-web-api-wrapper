@@ -9,10 +9,10 @@
 import Foundation
 
 public struct SpotifyError: Codable, Error {
-    var message: String {
+    public var message: String {
         return error.message
     }
-    var status: Int {
+    public var status: Int {
         return error.status
     }
 
@@ -24,7 +24,7 @@ public struct SpotifyError: Codable, Error {
 }
 
 public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
-    let items: [T]
+    public let items: [T]
 
     private struct AlbumContainer: Codable {
         let album: Album
@@ -56,10 +56,10 @@ public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
 }
 
 public struct SpotifySearchResult: Codable {
-    let albums: [Album]
-    let artists: [Artist]
-    let tracks: [Track]
-    let playlists: [Playlist]
+    public let albums: [Album]
+    public let artists: [Artist]
+    public let tracks: [Track]
+    public let playlists: [Playlist]
 
     public init(from decoder: Decoder) throws {
         let results = try decoder.container(keyedBy: CodingKeys.self)
