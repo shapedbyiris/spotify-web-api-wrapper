@@ -23,15 +23,43 @@ public struct SpotifyError: Codable, Error {
     }
 }
 
+struct SpotifyPagingObject<T: Codable & SpotifyEntity>: Codable {
+    let items: [T]
+
+    private struct AlbumContainer: Codable {
+        let album: Album
+    }
+    private struct TrackContainer: Codable {
+        let track: Track
+    }
+    private struct ArtistContainer: Codable {
+        let items: [Artist]
+    }
+    private let artists: ArtistContainer? = nil
+
+    //swiftlint:disable force_cast
+    public init(from decoder: Decoder) throws {
+        let results = try decoder.container(keyedBy: CodingKeys.self)
+
+        if let allThings = try? results.decode([T].self, forKey: .items) {
+            items = allThings
+        } else if let albumArray = try? results.decode([AlbumContainer].self, forKey: .items) {
+            items = albumArray.map { $0.album } as! [T]
+        } else if let trackArray = try? results.decode([TrackContainer].self, forKey: .items) {
+            items = trackArray.map { $0.track } as! [T]
+        } else {
+            let artists = try results.decode(ArtistContainer.self, forKey: .artists)
+            items = artists.items as! [T]
+        }
+    }
+    //swiftlint:enable force_cast
+}
+
 public struct SpotifySearchResult: Codable {
     let albums: [Album]
     let artists: [Artist]
     let tracks: [Track]
     let playlists: [Playlist]
-
-    private struct SpotifyPagingObject<T: Codable>: Codable {
-        let items: [T]
-    }
 
     public init(from decoder: Decoder) throws {
         let results = try decoder.container(keyedBy: CodingKeys.self)

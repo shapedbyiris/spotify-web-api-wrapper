@@ -1,0 +1,97 @@
+{
+    "artists": {
+        "items": [
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/0i5yrKtlP4URcRBXQQwnik"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 13745
+                },
+                "genres": [
+                    "bebop",
+                    "bossa nova",
+                    "cool jazz",
+                    "jazz",
+                    "jazz guitar"
+                ],
+                "href": "https://api.spotify.com/v1/artists/0i5yrKtlP4URcRBXQQwnik",
+                "id": "0i5yrKtlP4URcRBXQQwnik",
+                "images": [
+                    {
+                        "height": 1000,
+                        "url": "https://i.scdn.co/image/a839bcdf68a99108696fd999546ab8c4c3a59d3c",
+                        "width": 1000
+                    },
+                    {
+                        "height": 722,
+                        "url": "https://i.scdn.co/image/5fa79d8d51c5c482ce93841f767b84300de97154",
+                        "width": 640
+                    },
+                    {
+                        "height": 226,
+                        "url": "https://i.scdn.co/image/ea2a11c4be88a66772e81c4c12d8e5cf7e6af526",
+                        "width": 200
+                    },
+                    {
+                        "height": 72,
+                        "url": "https://i.scdn.co/image/f6c4543ca9c7307a9ec840fd29fdd60372b119a4",
+                        "width": 64
+                    }
+                ],
+                "name": "Charlie Byrd",
+                "popularity": 47,
+                "type": "artist",
+                "uri": "spotify:artist:0i5yrKtlP4URcRBXQQwnik"
+            },
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1DJVvIcjKhdedkuGRzW7PG"
+                },
+                "followers": {
+                    "href": null,
+                    "total": 41370
+                },
+                "genres": [
+                    "afrobeat",
+                    "bboy",
+                    "brit funk",
+                    "funk",
+                    "instrumental funk",
+                    "jam band"
+                ],
+                "href": "https://api.spotify.com/v1/artists/1DJVvIcjKhdedkuGRzW7PG",
+                "id": "1DJVvIcjKhdedkuGRzW7PG",
+                "images": [
+                    {
+                        "height": 640,
+                        "url": "https://i.scdn.co/image/1f160dfe65ce484f7c14fa994cc743d17263bac8",
+                        "width": 640
+                    },
+                    {
+                        "height": 320,
+                        "url": "https://i.scdn.co/image/3188df3251ac22e4d02c9592cb05af51e8bdf56a",
+                        "width": 320
+                    },
+                    {
+                        "height": 160,
+                        "url": "https://i.scdn.co/image/8d89a22ce57c696535a22910ba92784db8a54e40",
+                        "width": 160
+                    }
+                ],
+                "name": "The New Mastersounds",
+                "popularity": 48,
+                "type": "artist",
+                "uri": "spotify:artist:1DJVvIcjKhdedkuGRzW7PG"
+            }
+        ],
+        "next": null,
+        "total": 2,
+        "cursors": {
+            "after": null
+        },
+        "limit": 20,
+        "href": "https://api.spotify.com/v1/me/following?type=artist&limit=20"
+    }
+}

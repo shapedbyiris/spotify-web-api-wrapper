@@ -10,7 +10,7 @@ import XCTest
 
 @testable import SpotifyWebAPI
 
-class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try line_length
+class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
 
     static func dataForJSONFileNamed(string: String) -> Data {
 
@@ -34,17 +34,69 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try line_lengt
         }
     }
 
-    static let searchResultsData: Data = {
-        return dataForJSONFileNamed(string: "search_results_duranduran")
-    }()
+    func testCorrectlyParsesMyTracks() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_tracks")
+            let results = try JSONDecoder().decode(SpotifyPagingObject<Track>.self, from: data)
 
-    static let errorData: Data = {
-        return dataForJSONFileNamed(string: "error_token_expired")
-    }()
+            let firstTrack = results.items[0]
+            XCTAssert(firstTrack.title == "Timewarp")
+            XCTAssert(firstTrack.artist[0].name == "Emapea")
+            XCTAssert(firstTrack.album.name == "Seeds, Roots & Fruits")
+
+            let thirdTrack = results.items[2]
+            XCTAssert(thirdTrack.title == "Temple")
+            XCTAssert(thirdTrack.album.name == "Temple")
+            XCTAssert(thirdTrack.artist[0].name == "Jan Jelinek")
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
+    func testCorrectlyParsesMyArtists() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_artists")
+            let results = try JSONDecoder().decode(SpotifyPagingObject<Artist>.self, from: data)
+
+            let firstArtist = results.items[0]
+            XCTAssert(firstArtist.name == "Charlie Byrd")
+
+            let secondArtist = results.items[1]
+            XCTAssert(secondArtist.name == "The New Mastersounds")
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
+    func testCorrectlyParsesMyAlbums() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_albums")
+            let results = try JSONDecoder().decode(SpotifyPagingObject<Album>.self, from: data)
+
+            let firstAlbum = results.items[0]
+            XCTAssert(firstAlbum.name == "Out On the Faultline")
+            XCTAssert(firstAlbum.spotifyArtists[0].name == "The New Mastersounds")
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
+    func testCorrectlyParsesPlaylists() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_playlists")
+            let results = try JSONDecoder().decode(SpotifyPagingObject<Playlist>.self, from: data)
+
+            let firstPlaylist = results.items[0]
+            XCTAssert(firstPlaylist.name == "Sweeters")
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
 
     func testCorrectlyParsesSearchResults() {
         do {
-            let results = try JSONDecoder().decode(SpotifySearchResult.self, from: SpotifyParsingTests.searchResultsData)
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "search_results_duranduran")
+            let results = try JSONDecoder().decode(SpotifySearchResult.self, from: data)
             XCTAssert(results.albums.count == 20)
 
             let fifthArtist = results.artists[4]
@@ -92,7 +144,8 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try line_lengt
 
     func testCorrectlyParsesError() {
         do {
-            let error = try JSONDecoder().decode(SpotifyError.self, from: SpotifyParsingTests.errorData)
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "error_token_expired")
+            let error = try JSONDecoder().decode(SpotifyError.self, from: data)
             XCTAssert(error.message == "The access token expired")
             XCTAssert(error.status == 401)
         } catch {

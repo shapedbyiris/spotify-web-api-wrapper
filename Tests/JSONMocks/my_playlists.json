@@ -1,0 +1,45 @@
+{
+    "href": "https://api.spotify.com/v1/users/branlory/playlists?offset=0&limit=20",
+    "items": [
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/6vyVKuRwHHsBX9P3QBtRS8"
+            },
+            "href": "https://api.spotify.com/v1/playlists/6vyVKuRwHHsBX9P3QBtRS8",
+            "id": "6vyVKuRwHHsBX9P3QBtRS8",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/c7f378927781b68fe14e67cfa6b9e16a139bf4bd",
+                    "width": 640
+                }
+            ],
+            "name": "Sweeters",
+            "owner": {
+                "display_name": "junancho24",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/junancho24"
+                },
+                "href": "https://api.spotify.com/v1/users/junancho24",
+                "id": "junancho24",
+                "type": "user",
+                "uri": "spotify:user:junancho24"
+            },
+            "primary_color": null,
+            "public": false,
+            "snapshot_id": "NSw0NThhMWQ4ZGViMDY0ZDNiZjVlY2EzNGNhMmI2OGUzN2EyYjY5MTc3",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/6vyVKuRwHHsBX9P3QBtRS8/tracks",
+                "total": 18
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:6vyVKuRwHHsBX9P3QBtRS8"
+        }
+    ],
+    "limit": 20,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 1
+}
