@@ -52,7 +52,7 @@ extension Playlist: Codable {
 
 public struct Track: SpotifyEntity {
     public let title: String
-    public let artist: [Artist]
+    public let artists: [Artist]
     public let album: Album
     private let miliseconds: Int
     public let spotifyURI: String
@@ -65,8 +65,8 @@ public struct Track: SpotifyEntity {
 extension Track: Codable {
     enum CodingKeys: String, CodingKey {
         case title = "name"
-        case artist = "artists"
-        case album = "album"
+        case artists
+        case album
         case miliseconds = "duration_ms"
         case spotifyURI = "uri"
     }

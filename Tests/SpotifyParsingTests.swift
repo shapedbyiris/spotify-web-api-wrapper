@@ -41,13 +41,13 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
 
             let firstTrack = results.items[0]
             XCTAssert(firstTrack.title == "Timewarp")
-            XCTAssert(firstTrack.artist[0].name == "Emapea")
+            XCTAssert(firstTrack.artists[0].name == "Emapea")
             XCTAssert(firstTrack.album.name == "Seeds, Roots & Fruits")
 
             let thirdTrack = results.items[2]
             XCTAssert(thirdTrack.title == "Temple")
             XCTAssert(thirdTrack.album.name == "Temple")
-            XCTAssert(thirdTrack.artist[0].name == "Jan Jelinek")
+            XCTAssert(thirdTrack.artists[0].name == "Jan Jelinek")
         } catch {
             XCTFail(String(describing: error))
         }
@@ -122,7 +122,7 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
             let fourthTrack = results.tracks[3]
             XCTAssert(fourthTrack.title == "Rio - 2009 Remaster")
             XCTAssert(fourthTrack.duration == 337.333)
-            XCTAssert(fourthTrack.artist.first!.name == "Duran Duran")
+            XCTAssert(fourthTrack.artists.first!.name == "Duran Duran")
 
             let eighteenthTrack = results.tracks[17]
             XCTAssert(eighteenthTrack.duration == 209.546)
