@@ -47,6 +47,19 @@ public extension URLRequest {
         self.allHTTPHeaderFields = authorisationHeader(token: token)
         self.httpMethod = .GET
     }
+
+    init(topTracksFor artistID: String, token: String) {
+        var components = URLComponents()
+        components.path = "artists/\(artistID)/top-tracks"
+        components.queryItems = [URLQueryItem(name: "country", value: "GB")]
+
+        let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
+
+        self.init(url: completeURL)
+
+        self.allHTTPHeaderFields = authorisationHeader(token: token)
+        self.httpMethod = .GET
+    }
 }
 
 private func authorisationHeader(token: String) -> [String: String] {
