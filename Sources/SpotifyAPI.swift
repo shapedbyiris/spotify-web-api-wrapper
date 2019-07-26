@@ -55,6 +55,10 @@ public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
     //swiftlint:enable force_cast
 }
 
+public struct TrackList: Codable {
+    let tracks: [Track]
+}
+
 public struct SpotifySearchResult: Codable {
     public let albums: [Album]
     public let artists: [Artist]

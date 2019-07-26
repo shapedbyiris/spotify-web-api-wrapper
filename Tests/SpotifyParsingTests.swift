@@ -93,6 +93,26 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
         }
     }
 
+    func testCorrectlyParsesTopTracks() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "artist_top_tracks")
+            let results = try JSONDecoder().decode(TrackList.self, from: data)
+
+            let firstTrack = results.tracks[0]
+            XCTAssert(firstTrack.title == "Can't Help Falling in Love")
+            XCTAssert(firstTrack.artists[0].name == "Elvis Presley")
+            XCTAssert(firstTrack.album.name == "Blue Hawaii")
+
+            let eigthTrack = results.tracks[7]
+            XCTAssert(eigthTrack.artists[0].name == "Elvis Presley")
+            XCTAssert(eigthTrack.title == "Blue Suede Shoes")
+            XCTAssert(eigthTrack.duration == 119.2)
+
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
     func testCorrectlyParsesSearchResults() {
         do {
             let data = SpotifyParsingTests.dataForJSONFileNamed(string: "search_results_duranduran")
