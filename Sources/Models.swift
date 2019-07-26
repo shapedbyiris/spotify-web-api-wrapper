@@ -53,7 +53,7 @@ extension Playlist: Codable {
 public struct Track: SpotifyEntity {
     public let title: String
     public let artists: [Artist]
-    public let album: Album
+    public let album: Album?
     private let miliseconds: Int
     public let spotifyURI: String
 

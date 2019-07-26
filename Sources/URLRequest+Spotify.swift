@@ -48,10 +48,10 @@ public extension URLRequest {
         self.httpMethod = .GET
     }
 
-    init(topTracksFor artistID: String, token: String) {
+    init(topTracksForArtist artistID: String, token: String, country: String = "GB") {
         var components = URLComponents()
         components.path = "artists/\(artistID)/top-tracks"
-        components.queryItems = [URLQueryItem(name: "country", value: "GB")]
+        components.queryItems = [URLQueryItem(name: "country", value: country)]
 
         let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
 
@@ -59,6 +59,41 @@ public extension URLRequest {
 
         self.allHTTPHeaderFields = authorisationHeader(token: token)
         self.httpMethod = .GET
+    }
+
+    init(tracksInAlbum spotifyURI: String, token: String) {
+        var components = URLComponents()
+        components.path = "albums/\(spotifyURI.entityID)/tracks"
+
+        let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
+
+        self.init(url: completeURL)
+
+        self.allHTTPHeaderFields = authorisationHeader(token: token)
+        self.httpMethod = .GET
+    }
+
+    init(tracksInPlaylist spotifyURI: String, token: String) {
+        var components = URLComponents()
+        components.path = "playlists/\(spotifyURI.entityID)/tracks"
+
+        let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
+
+        self.init(url: completeURL)
+
+        self.allHTTPHeaderFields = authorisationHeader(token: token)
+        self.httpMethod = .GET
+    }
+}
+
+private extension String {
+    var entityID: String {
+        let components = self.components(separatedBy: ":")
+        if components.count > 1 {
+            return components.last!
+        } else {
+            return self
+        }
     }
 }
 

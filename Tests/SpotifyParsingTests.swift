@@ -42,11 +42,11 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
             let firstTrack = results.items[0]
             XCTAssert(firstTrack.title == "Timewarp")
             XCTAssert(firstTrack.artists[0].name == "Emapea")
-            XCTAssert(firstTrack.album.name == "Seeds, Roots & Fruits")
+            XCTAssert(firstTrack.album!.name == "Seeds, Roots & Fruits")
 
             let thirdTrack = results.items[2]
             XCTAssert(thirdTrack.title == "Temple")
-            XCTAssert(thirdTrack.album.name == "Temple")
+            XCTAssert(thirdTrack.album!.name == "Temple")
             XCTAssert(thirdTrack.artists[0].name == "Jan Jelinek")
         } catch {
             XCTFail(String(describing: error))
@@ -101,12 +101,52 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
             let firstTrack = results.tracks[0]
             XCTAssert(firstTrack.title == "Can't Help Falling in Love")
             XCTAssert(firstTrack.artists[0].name == "Elvis Presley")
-            XCTAssert(firstTrack.album.name == "Blue Hawaii")
+            XCTAssert(firstTrack.album!.name == "Blue Hawaii")
 
             let eigthTrack = results.tracks[7]
             XCTAssert(eigthTrack.artists[0].name == "Elvis Presley")
             XCTAssert(eigthTrack.title == "Blue Suede Shoes")
             XCTAssert(eigthTrack.duration == 119.2)
+
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
+    func testCorrectlyParsesTracksInPlaylist() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "tracks_in_playlist")
+            let results = try JSONDecoder().decode(SpotifyPagingObject<Track>.self, from: data)
+
+            let firstTrack = results.items[0]
+            XCTAssert(firstTrack.title == "Yellow Ledbetter")
+            XCTAssert(firstTrack.artists[0].name == "Pearl Jam")
+            XCTAssert(firstTrack.album!.name == "Jeremy")
+
+            let eigthTrack = results.items[7]
+            XCTAssert(eigthTrack.artists[0].name == "Audioslave")
+            XCTAssert(eigthTrack.title == "Be Yourself")
+            XCTAssert(eigthTrack.album!.name == "Out of Exile")
+
+        } catch {
+            XCTFail(String(describing: error))
+        }
+    }
+
+    func testCorrectlyParsesTracksInAlbum() {
+        do {
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "tracks_in_album")
+            let results = try JSONDecoder().decode(SpotifyPagingObject<Track>.self, from: data)
+
+            let secondTrack = results.items[1]
+            XCTAssert(secondTrack.title == "Rock In The Video Age")
+            XCTAssert(secondTrack.duration == 483.973)
+            XCTAssert(secondTrack.artists[0].name == "Jan Jelinek")
+
+            let fourthTrack = results.items[3]
+            XCTAssert(fourthTrack.title == "Them, Their")
+            XCTAssert(fourthTrack.duration == 306.253)
+            XCTAssert(fourthTrack.artists[0].name == "Jan Jelinek")
 
         } catch {
             XCTFail(String(describing: error))
