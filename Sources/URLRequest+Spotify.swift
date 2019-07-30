@@ -12,9 +12,16 @@ public extension URLRequest {
 
     private static let spotifyBaseURL = URL(string: "https://api.spotify.com/v1/")
 
-    init(spotifySearch queryString: String, token: String) {
-        let suffix = URLComponents.generalSearch(queryString: queryString)
-        let completeURL = suffix.url(relativeTo: URLRequest.spotifyBaseURL)!
+    init(spotifySearch queryString: String, limit: Int = 20, token: String) {
+
+        var components = URLComponents()
+        components.path = "search"
+        let searchQuery = URLQueryItem(name: "q", value: queryString)
+        let queryType = URLQueryItem(name: "type", value: "playlist,artist,album,track")
+        let limit = URLQueryItem(name: "limit", value: "\(limit)")
+        components.queryItems = [searchQuery, queryType, limit]
+
+        let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
 
         self.init(url: completeURL)
 
@@ -104,15 +111,4 @@ private func authorisationHeader(token: String) -> [String: String] {
 private extension String {
     static let GET = "GET"
     static let POST = "POST"
-}
-
-private extension URLComponents {
-    static func generalSearch(queryString: String) -> URLComponents {
-        var components = URLComponents()
-        components.path = "search"
-        let searchQuery = URLQueryItem(name: "q", value: queryString)
-        let queryType = URLQueryItem(name: "type", value: "playlist,artist,album,track")
-        components.queryItems = [searchQuery, queryType]
-        return components
-    }
 }
