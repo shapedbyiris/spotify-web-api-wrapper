@@ -57,7 +57,7 @@ public extension URLRequest {
 
     init(topTracksForArtist artistID: String, token: String, country: String = "GB") {
         var components = URLComponents()
-        components.path = "artists/\(artistID)/top-tracks"
+        components.path = "artists/\(artistID.entityID)/top-tracks"
         components.queryItems = [URLQueryItem(name: "country", value: country)]
 
         let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
