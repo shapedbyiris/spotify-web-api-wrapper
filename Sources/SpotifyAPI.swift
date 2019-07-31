@@ -56,7 +56,7 @@ public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
 }
 
 public struct TrackList: Codable {
-    let tracks: [Track]
+    public let tracks: [Track]
 }
 
 public struct SpotifySearchResult: Codable {
