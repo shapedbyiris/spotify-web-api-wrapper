@@ -60,6 +60,7 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
 
             let firstArtist = results.items[0]
             XCTAssert(firstArtist.name == "Charlie Byrd")
+            XCTAssert(firstArtist.thumbnailImageURL!.absoluteString == "https://i.scdn.co/image/f6c4543ca9c7307a9ec840fd29fdd60372b119a4")
 
             let secondArtist = results.items[1]
             XCTAssert(secondArtist.name == "The New Mastersounds")
@@ -76,6 +77,7 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
             let firstAlbum = results.items[0]
             XCTAssert(firstAlbum.name == "Out On the Faultline")
             XCTAssert(firstAlbum.spotifyArtists[0].name == "The New Mastersounds")
+            XCTAssert(firstAlbum.thumbnailImageURL!.absoluteString == "https://i.scdn.co/image/edb93932af6ae201f416e0c6f76e0f2d74f39d9f")
         } catch {
             XCTFail(String(describing: error))
         }
