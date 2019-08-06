@@ -10,7 +10,9 @@ import XCTest
 
 @testable import SpotifyWebAPI
 
-class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
+//swiftlint:disable force_try line_length
+
+class SpotifyParsingTests: XCTestCase {
 
     static func dataForJSONFileNamed(string: String) -> Data {
 
@@ -43,6 +45,7 @@ class SpotifyParsingTests: XCTestCase { //swiftlint:disable force_try
             XCTAssert(firstTrack.title == "Timewarp")
             XCTAssert(firstTrack.artists[0].name == "Emapea")
             XCTAssert(firstTrack.album!.name == "Seeds, Roots & Fruits")
+            XCTAssert(firstTrack.thumbnailImageURL!.absoluteString == "https://i.scdn.co/image/486396acc04b67827547a263ccdb78a19a754a42")
 
             let thirdTrack = results.items[2]
             XCTAssert(thirdTrack.title == "Temple")

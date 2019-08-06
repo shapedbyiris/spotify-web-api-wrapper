@@ -76,9 +76,8 @@ public struct Track: SpotifyEntity {
     public let album: Album?
     private let miliseconds: Int
     public let spotifyURI: String
-    let images: [SpotifyImageContainer]?
     public var thumbnailImageURL: URL? {
-        return images?.last?.url
+        return album?.images?.last?.url
     }
     public var duration: TimeInterval {
         return TimeInterval(miliseconds) / 1000.0
@@ -92,6 +91,5 @@ extension Track: Codable {
         case album
         case miliseconds = "duration_ms"
         case spotifyURI = "uri"
-        case images
     }
 }
