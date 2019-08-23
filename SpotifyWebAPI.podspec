@@ -1,6 +1,14 @@
+##
+##  SpotifyWebAPI.podspec
+##  IRIS
+##
+##  Created by Ariel Elkin on 25/07/2019.
+##  Copyright © 2018 IRIS. All rights reserved.
+##
+
 Pod::Spec.new do |spec|
   spec.name         = "SpotifyWebAPI"
-  spec.version      = "0.2.7"
+  spec.version      = "0.3.0"
   spec.summary      = "Wrapping the Spotify Web API"
   spec.homepage     = "https://github.com/shapedbyiris/spotify-web-api-wrapper"
   spec.source = { :git => 'https://github.com/shapedbyiris/spotify-web-api-wrapper.git', :tag => spec.version }
