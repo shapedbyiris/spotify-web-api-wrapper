@@ -68,9 +68,9 @@ public extension URLRequest {
         self.httpMethod = .GET
     }
 
-    init(tracksInAlbum spotifyURI: String, token: String) {
+    init(album spotifyURI: String, token: String) {
         var components = URLComponents()
-        components.path = "albums/\(spotifyURI.entityID)/tracks"
+        components.path = "albums/\(spotifyURI.entityID)"
 
         let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
 

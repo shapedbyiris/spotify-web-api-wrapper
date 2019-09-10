@@ -141,17 +141,23 @@ class SpotifyParsingTests: XCTestCase {
     func testCorrectlyParsesTracksInAlbum() {
         do {
             let data = SpotifyParsingTests.dataForJSONFileNamed(string: "tracks_in_album")
-            let results = try JSONDecoder().decode(SpotifyPagingObject<Track>.self, from: data)
+            let results = try JSONDecoder().decode(Album.self, from: data)
 
-            let secondTrack = results.items[1]
+            guard let secondTrack = results.tracks?[1] else {
+                return XCTFail()
+            }
             XCTAssert(secondTrack.title == "Rock In The Video Age")
             XCTAssert(secondTrack.duration == 483.973)
             XCTAssert(secondTrack.artists[0].name == "Jan Jelinek")
+            XCTAssert(secondTrack.thumbnailImageURL?.absoluteString == "https://i.scdn.co/image/df598f8b015a0b4d663a8598acc1b7aab3a252be")
 
-            let fourthTrack = results.items[3]
+            guard let fourthTrack = results.tracks?[3] else {
+                return XCTFail()
+            }
             XCTAssert(fourthTrack.title == "Them, Their")
             XCTAssert(fourthTrack.duration == 306.253)
             XCTAssert(fourthTrack.artists[0].name == "Jan Jelinek")
+            XCTAssert(secondTrack.thumbnailImageURL?.absoluteString == "https://i.scdn.co/image/df598f8b015a0b4d663a8598acc1b7aab3a252be")
 
         } catch {
             XCTFail(String(describing: error))

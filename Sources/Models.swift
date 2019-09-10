@@ -42,7 +42,23 @@ public struct Album: SpotifyEntity {
     let images: [SpotifyImageContainer]?
     public var thumbnailImageURL: URL? {
         return images?.last?.url
-    }}
+    }
+    private let trackContainer: TrackContainer?
+    private struct TrackContainer: Codable {
+        let items: [Track]
+    }
+    public var tracks: [Track]? {
+        if let allTracks = trackContainer?.items {
+            var newTracks = [Track]()
+            for var track in allTracks {
+                track.album = self
+                newTracks.append(track)
+            }
+            return newTracks
+        }
+        return nil
+    }
+}
 
 extension Album: Codable {
     enum CodingKeys: String, CodingKey {
@@ -50,6 +66,7 @@ extension Album: Codable {
         case spotifyArtists = "artists"
         case spotifyURI = "uri"
         case images
+        case trackContainer = "tracks"
     }
 }
 
@@ -73,7 +90,7 @@ extension Playlist: Codable {
 public struct Track: SpotifyEntity {
     public let title: String
     public let artists: [Artist]
-    public let album: Album?
+    public var album: Album?
     private let miliseconds: Int
     public let spotifyURI: String
     public var thumbnailImageURL: URL? {
