@@ -44,9 +44,11 @@ public struct Album: SpotifyEntity {
         return images?.last?.url
     }
     private let trackContainer: TrackContainer?
+
     private struct TrackContainer: Codable {
         let items: [Track]
     }
+
     public var tracks: [Track]? {
         if let allTracks = trackContainer?.items {
             var newTracks = [Track]()
@@ -97,7 +99,7 @@ public struct Track: SpotifyEntity {
         return album?.images?.last?.url
     }
     public var duration: TimeInterval {
-        return TimeInterval(miliseconds) / 1000.0
+        return TimeInterval(miliseconds) / 1_000.0
     }
 }
 

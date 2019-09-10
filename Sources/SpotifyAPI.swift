@@ -17,6 +17,7 @@ public struct SpotifyError: Codable, Error {
     }
 
     private let error: Container
+
     private struct Container: Codable {
         let message: String
         let status: Int
@@ -35,6 +36,7 @@ public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
     private struct ArtistContainer: Codable {
         let items: [Artist]
     }
+
     private let artists: ArtistContainer? = nil
 
     //swiftlint:disable force_cast
