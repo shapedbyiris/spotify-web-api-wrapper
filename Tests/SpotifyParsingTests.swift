@@ -144,7 +144,7 @@ class SpotifyParsingTests: XCTestCase {
             let results = try JSONDecoder().decode(Album.self, from: data)
 
             guard let secondTrack = results.tracks?[1] else {
-                return XCTFail()
+                return XCTFail("expecting track at index 1")
             }
             XCTAssert(secondTrack.title == "Rock In The Video Age")
             XCTAssert(secondTrack.duration == 483.973)
@@ -152,7 +152,7 @@ class SpotifyParsingTests: XCTestCase {
             XCTAssert(secondTrack.thumbnailImageURL?.absoluteString == "https://i.scdn.co/image/df598f8b015a0b4d663a8598acc1b7aab3a252be")
 
             guard let fourthTrack = results.tracks?[3] else {
-                return XCTFail()
+                return XCTFail("expecting track at index 3")
             }
             XCTAssert(fourthTrack.title == "Them, Their")
             XCTAssert(fourthTrack.duration == 306.253)
