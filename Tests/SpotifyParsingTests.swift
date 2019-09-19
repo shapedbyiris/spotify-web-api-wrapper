@@ -86,13 +86,17 @@ class SpotifyParsingTests: XCTestCase {
         }
     }
 
-    func testCorrectlyParsesPlaylists() {
+    func testCorrectlyParsesMyPlaylists() {
         do {
             let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_playlists")
             let results = try JSONDecoder().decode(SpotifyPagingObject<Playlist>.self, from: data)
 
             let firstPlaylist = results.items[0]
-            XCTAssert(firstPlaylist.name == "Sweeters")
+            XCTAssert(firstPlaylist.name == "Good glitches")
+            XCTAssert(firstPlaylist.images?.first?.url.absoluteString == "https://i.scdn.co/image/c7f378927781b68fe14e67cfa6b9e16a139bf4bd")
+
+            let secondPlaylist = results.items[1]
+            XCTAssert(secondPlaylist.name == "Danceahll")
         } catch {
             XCTFail(String(describing: error))
         }
@@ -118,21 +122,24 @@ class SpotifyParsingTests: XCTestCase {
         }
     }
 
-    func testCorrectlyParsesTracksInPlaylist() {
+    func testCorrectlyParsesPlaylist() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "tracks_in_playlist")
-            let results = try JSONDecoder().decode(SpotifyPagingObject<Track>.self, from: data)
+            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "playlist")
+            let results = try JSONDecoder().decode(Playlist.self, from: data)
 
-            let firstTrack = results.items[0]
+            guard let firstTrack = results.pagingObject?.items[0] else {
+                return XCTFail("first track is nil")
+            }
             XCTAssert(firstTrack.title == "Yellow Ledbetter")
             XCTAssert(firstTrack.artists[0].name == "Pearl Jam")
             XCTAssert(firstTrack.album!.name == "Jeremy")
 
-            let eigthTrack = results.items[7]
+            guard let eigthTrack = results.pagingObject?.items[7] else {
+                return XCTFail("eigthTrack is nil")
+            }
             XCTAssert(eigthTrack.artists[0].name == "Audioslave")
             XCTAssert(eigthTrack.title == "Be Yourself")
             XCTAssert(eigthTrack.album!.name == "Out of Exile")
-
         } catch {
             XCTFail(String(describing: error))
         }

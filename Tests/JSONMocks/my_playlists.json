@@ -4,6 +4,315 @@
         {
             "collaborative": false,
             "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/3hVdbfW1xF7eCaeyAr4Ojw"
+            },
+            "href": "https://api.spotify.com/v1/playlists/3hVdbfW1xF7eCaeyAr4Ojw",
+            "id": "3hVdbfW1xF7eCaeyAr4Ojw",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/c7f378927781b68fe14e67cfa6b9e16a139bf4bd",
+                    "width": 640
+                }
+            ],
+            "name": "Good glitches",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "MixhYzk1MTUzNmYwMjZlZTIzOGUzOTRjZjFlNGVhYTFhOTllMWY2OGUw",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/3hVdbfW1xF7eCaeyAr4Ojw/tracks",
+                "total": 1
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:3hVdbfW1xF7eCaeyAr4Ojw"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/5z0YH0ZJXXG8DPgKWhSNo2"
+            },
+            "href": "https://api.spotify.com/v1/playlists/5z0YH0ZJXXG8DPgKWhSNo2",
+            "id": "5z0YH0ZJXXG8DPgKWhSNo2",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/8dca0d5d85d029713d3c00ad654179e6d487f69b",
+                    "width": 640
+                }
+            ],
+            "name": "Danceahll",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "MywzMGI5NjRlYzI4YTU1NDllMzU2Zjc4Mzk2Y2U2NmIwOGFhMjZjYTZk",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/5z0YH0ZJXXG8DPgKWhSNo2/tracks",
+                "total": 1
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:5z0YH0ZJXXG8DPgKWhSNo2"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/4NzubFDXG1z3uMTK7UWm75"
+            },
+            "href": "https://api.spotify.com/v1/playlists/4NzubFDXG1z3uMTK7UWm75",
+            "id": "4NzubFDXG1z3uMTK7UWm75",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/807e4ab7f13d576cc6e29c19b0b7714b07250706",
+                    "width": 640
+                }
+            ],
+            "name": "Big Funk",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "MyxhNWE5M2IyNjllYjhiODY4NGJkNzdkOWY5MWJiOWRmMjA0YzRhODZk",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/4NzubFDXG1z3uMTK7UWm75/tracks",
+                "total": 1
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:4NzubFDXG1z3uMTK7UWm75"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/4bixbO5cnnsWCHuQZdfb3l"
+            },
+            "href": "https://api.spotify.com/v1/playlists/4bixbO5cnnsWCHuQZdfb3l",
+            "id": "4bixbO5cnnsWCHuQZdfb3l",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/9f6e0bfdf1ef04b969606c676dd136ea2c30386c",
+                    "width": 640
+                }
+            ],
+            "name": "xplore afrobeat",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "Miw2ZWQ3YmY4MTUxMjgyYjc5Mzc4YjdmMDAyYzJhNzI0MzkyNGU5N2Ji",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/4bixbO5cnnsWCHuQZdfb3l/tracks",
+                "total": 1
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:4bixbO5cnnsWCHuQZdfb3l"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/37i9dQZF1E8NjZtvwoZLAj"
+            },
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E8NjZtvwoZLAj",
+            "id": "37i9dQZF1E8NjZtvwoZLAj",
+            "images": [
+                {
+                    "height": null,
+                    "url": "https://seeded-session-images.scdn.co/v1/img/track/6XrRsEiP7KccIkRgqxcL70/en",
+                    "width": null
+                }
+            ],
+            "name": "How Insensitive Radio",
+            "owner": {
+                "display_name": "Spotify",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/spotify"
+                },
+                "href": "https://api.spotify.com/v1/users/spotify",
+                "id": "spotify",
+                "type": "user",
+                "uri": "spotify:user:spotify"
+            },
+            "primary_color": null,
+            "public": false,
+            "snapshot_id": "MjYxNDgxNTYsMDAwMDAwMDBmY2Q3NTRhMjkwOWJlN2YxMGZiOGIxMzhkMzFiYWJmMA==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E8NjZtvwoZLAj/tracks",
+                "total": 50
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:37i9dQZF1E8NjZtvwoZLAj"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/3mzGf1Hoc8cLCzfc91g7xt"
+            },
+            "href": "https://api.spotify.com/v1/playlists/3mzGf1Hoc8cLCzfc91g7xt",
+            "id": "3mzGf1Hoc8cLCzfc91g7xt",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/93ce0f05d916e71697c81c4378cce16324ab92e2",
+                    "width": 640
+                }
+            ],
+            "name": "xcplore reggae",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "NyxjYmVjNWQ3MTYzZTA2YmM2N2I5YTE0N2MzMGYwNDk1MjY2NDM4MGZk",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/3mzGf1Hoc8cLCzfc91g7xt/tracks",
+                "total": 3
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:3mzGf1Hoc8cLCzfc91g7xt"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/3Qz9YCru2fyTY6E87R7H8Y"
+            },
+            "href": "https://api.spotify.com/v1/playlists/3Qz9YCru2fyTY6E87R7H8Y",
+            "id": "3Qz9YCru2fyTY6E87R7H8Y",
+            "images": [],
+            "name": "xplore instrus",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "NCw4MTg4MmY3Y2YyYTAzMzJlZDUxMTgyMzY1MjVlOTQyMDkxZjIxODgx",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/3Qz9YCru2fyTY6E87R7H8Y/tracks",
+                "total": 0
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:3Qz9YCru2fyTY6E87R7H8Y"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/37i9dQZF1E8JmriqRYSZOn"
+            },
+            "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E8JmriqRYSZOn",
+            "id": "37i9dQZF1E8JmriqRYSZOn",
+            "images": [
+                {
+                    "height": null,
+                    "url": "https://seeded-session-images.scdn.co/v1/img/track/7KqeNg0PZzAXiWEzyC9ckm/en",
+                    "width": null
+                }
+            ],
+            "name": "The House of the Rising Sun Radio",
+            "owner": {
+                "display_name": "Spotify",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/spotify"
+                },
+                "href": "https://api.spotify.com/v1/users/spotify",
+                "id": "spotify",
+                "type": "user",
+                "uri": "spotify:user:spotify"
+            },
+            "primary_color": null,
+            "public": false,
+            "snapshot_id": "MjYxNDgxNTYsMDAwMDAwMDA5Zjg4ZDlhMDZhMzNjMWE1MzQ0NzlmMWMwNjg4NzI4ZA==",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E8JmriqRYSZOn/tracks",
+                "total": 50
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:37i9dQZF1E8JmriqRYSZOn"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
+                "spotify": "https://open.spotify.com/playlist/2Y6AVDarfjKZEzFv8FQGGt"
+            },
+            "href": "https://api.spotify.com/v1/playlists/2Y6AVDarfjKZEzFv8FQGGt",
+            "id": "2Y6AVDarfjKZEzFv8FQGGt",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/14baadb17f25a61aa598d7188fb89e060a2e59f1",
+                    "width": 640
+                }
+            ],
+            "name": "Chillers",
+            "owner": {
+                "display_name": "branlory",
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/user/branlory"
+                },
+                "href": "https://api.spotify.com/v1/users/branlory",
+                "id": "branlory",
+                "type": "user",
+                "uri": "spotify:user:branlory"
+            },
+            "primary_color": null,
+            "public": true,
+            "snapshot_id": "MyxhNjA0MmM3ZDhkODkzYzdiMTQyNzAzMzUzYTllMDc3OWNhNzM4NGQ2",
+            "tracks": {
+                "href": "https://api.spotify.com/v1/playlists/2Y6AVDarfjKZEzFv8FQGGt/tracks",
+                "total": 1
+            },
+            "type": "playlist",
+            "uri": "spotify:playlist:2Y6AVDarfjKZEzFv8FQGGt"
+        },
+        {
+            "collaborative": false,
+            "external_urls": {
                 "spotify": "https://open.spotify.com/playlist/6vyVKuRwHHsBX9P3QBtRS8"
             },
             "href": "https://api.spotify.com/v1/playlists/6vyVKuRwHHsBX9P3QBtRS8",
@@ -41,5 +350,5 @@
     "next": null,
     "offset": 0,
     "previous": null,
-    "total": 1
+    "total": 10
 }

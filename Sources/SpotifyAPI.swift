@@ -49,9 +49,11 @@ public struct SpotifyPagingObject<T: SpotifyEntity>: Codable {
             items = albumArray.map { $0.album } as! [T]
         } else if let trackArray = try? results.decode([TrackContainer].self, forKey: .items) {
             items = trackArray.map { $0.track } as! [T]
-        } else {
-            let artists = try results.decode(ArtistContainer.self, forKey: .artists)
+        } else if let artists = try? results.decode(ArtistContainer.self, forKey: .artists) {
             items = artists.items as! [T]
+        } else {
+            let context = DecodingError.Context(codingPath: [CodingKeys.items], debugDescription: "couldn't find items")
+            throw DecodingError.valueNotFound(SpotifyEntity.self, context)
         }
     }
     //swiftlint:enable force_cast
