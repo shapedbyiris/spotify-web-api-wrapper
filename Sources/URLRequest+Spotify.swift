@@ -82,7 +82,7 @@ public extension URLRequest {
 
     init(tracksInPlaylist spotifyURI: String, token: String) {
         var components = URLComponents()
-        components.path = "playlists/\(spotifyURI.entityID)/tracks"
+        components.path = "playlists/\(spotifyURI.entityID)"
 
         let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
 
