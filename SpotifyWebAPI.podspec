@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "SpotifyWebAPI"
-  spec.version      = "0.4.2"
+  spec.version      = "0.4.3"
   spec.summary      = "Wrapping the Spotify Web API"
   spec.homepage     = "https://github.com/shapedbyiris/spotify-web-api-wrapper"
   spec.source = { :git => 'https://github.com/shapedbyiris/spotify-web-api-wrapper.git', :tag => spec.version }

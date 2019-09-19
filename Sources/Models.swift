@@ -79,7 +79,7 @@ public struct Playlist: SpotifyEntity {
     public var thumbnailImageURL: URL? {
         return images?.last?.url
     }
-    let pagingObject: SpotifyPagingObject<Track>?
+    public let pagingObject: SpotifyPagingObject<Track>?
 }
 
 extension Playlist: Codable {
