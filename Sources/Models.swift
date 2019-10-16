@@ -11,6 +11,7 @@ import Foundation
 public protocol SpotifyEntity: Codable {
     var spotifyURI: String { get }
     var thumbnailImageURL: URL? { get }
+    var largeImageURL: URL? { get }
 }
 
 public struct Artist: SpotifyEntity {
@@ -19,6 +20,9 @@ public struct Artist: SpotifyEntity {
     let images: [SpotifyImageContainer]?
     public var thumbnailImageURL: URL? {
         return images?.last?.url
+    }
+    public var largeImageURL: URL? {
+        return images?.first?.url
     }
 }
 
@@ -42,6 +46,9 @@ public struct Album: SpotifyEntity {
     let images: [SpotifyImageContainer]?
     public var thumbnailImageURL: URL? {
         return images?.last?.url
+    }
+    public var largeImageURL: URL? {
+        return images?.first?.url
     }
     private let trackContainer: TrackContainer?
 
@@ -79,6 +86,9 @@ public struct Playlist: SpotifyEntity {
     public var thumbnailImageURL: URL? {
         return images?.last?.url
     }
+    public var largeImageURL: URL? {
+        return images?.first?.url
+    }
     public let pagingObject: SpotifyPagingObject<Track>?
 }
 
@@ -107,6 +117,9 @@ public struct Track: SpotifyEntity {
     public let spotifyURI: String
     public var thumbnailImageURL: URL? {
         return album?.images?.last?.url
+    }
+    public var largeImageURL: URL? {
+        return album?.images?.first?.url
     }
     public var duration: TimeInterval {
         return TimeInterval(miliseconds) / 1_000.0
