@@ -27,7 +27,7 @@ class URLRequestPlusSpotifyTests: XCTestCase { //swiftlint:disable line_length
     func testMyArtistsRequestsBuildsCorrectly() {
         let myTracksRequest = URLRequest.init(my: Artist.self, token: "token")
         XCTAssert(myTracksRequest.httpMethod == "GET")
-        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/following?type=artist"))
+        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/following?type=artist&limit=20"))
         XCTAssert(myTracksRequest.allHTTPHeaderFields != nil)
         XCTAssert(myTracksRequest.allHTTPHeaderFields!.contains(where: {
             $0.key == "Authorization" && $0.value == "Bearer token"
@@ -37,7 +37,7 @@ class URLRequestPlusSpotifyTests: XCTestCase { //swiftlint:disable line_length
     func testMyAlbumsRequestsBuildsCorrectly() {
         let myTracksRequest = URLRequest.init(my: Album.self, token: "token")
         XCTAssert(myTracksRequest.httpMethod == "GET")
-        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/albums"))
+        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/albums?limit=20"))
         XCTAssert(myTracksRequest.allHTTPHeaderFields != nil)
         XCTAssert(myTracksRequest.allHTTPHeaderFields!.contains(where: {
             $0.key == "Authorization" && $0.value == "Bearer token"
@@ -47,7 +47,7 @@ class URLRequestPlusSpotifyTests: XCTestCase { //swiftlint:disable line_length
     func testMyPlaylistsRequestsBuildsCorrectly() {
         let myTracksRequest = URLRequest.init(my: Playlist.self, token: "token")
         XCTAssert(myTracksRequest.httpMethod == "GET")
-        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/playlists"))
+        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/playlists?limit=20"))
         XCTAssert(myTracksRequest.allHTTPHeaderFields != nil)
         XCTAssert(myTracksRequest.allHTTPHeaderFields!.contains(where: {
             $0.key == "Authorization" && $0.value == "Bearer token"
@@ -57,7 +57,7 @@ class URLRequestPlusSpotifyTests: XCTestCase { //swiftlint:disable line_length
     func testMyTracksRequestsBuildsCorrectly() {
         let myTracksRequest = URLRequest.init(my: Track.self, token: "token")
         XCTAssert(myTracksRequest.httpMethod == "GET")
-        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/tracks"))
+        XCTAssert(myTracksRequest.url == URL(string: "https://api.spotify.com/v1/me/tracks?limit=20"))
         XCTAssert(myTracksRequest.allHTTPHeaderFields != nil)
         XCTAssert(myTracksRequest.allHTTPHeaderFields!.contains(where: {
             $0.key == "Authorization" && $0.value == "Bearer token"

@@ -29,14 +29,15 @@ public extension URLRequest {
         self.httpMethod = .GET
     }
 
-    init(my entityType: SpotifyEntity.Type, token: String) {
+    init(my entityType: SpotifyEntity.Type, limit: Int = 20, token: String) {
 
         var components = URLComponents()
+        var queryItems = [URLQueryItem]()
 
         switch entityType {
         case is Artist.Type:
             components.path = "me/following"
-            components.queryItems = [URLQueryItem(name: "type", value: "artist")]
+            queryItems.append(URLQueryItem(name: "type", value: "artist"))
         case is Album.Type:
             components.path = "me/albums"
         case is Track.Type:
@@ -46,6 +47,11 @@ public extension URLRequest {
         default:
             assertionFailure()
         }
+
+        let limit = URLQueryItem(name: "limit", value: "\(limit)")
+        queryItems.append(limit)
+
+        components.queryItems = queryItems
 
         let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
 
