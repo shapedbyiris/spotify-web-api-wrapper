@@ -10,10 +10,19 @@ import Foundation
 
 public extension URLRequest {
 
+    #if DEBUG
+    static var spotifyBaseURL: URL {
+        if ProcessInfo().arguments.contains("UI-TESTING") {
+            return URL(string: "http://localhost")!
+        } else {
+            return URL(string: "https://api.spotify.com/v1/")!
+        }
+    }
+    #else
     private static let spotifyBaseURL = URL(string: "https://api.spotify.com/v1/")
+    #endif
 
     init(spotifySearch queryString: String, limit: Int = 20, token: String) {
-
         var components = URLComponents()
         components.path = "search"
         let searchQuery = URLQueryItem(name: "q", value: queryString)
@@ -30,7 +39,6 @@ public extension URLRequest {
     }
 
     init(my entityType: SpotifyEntity.Type, limit: Int = 20, token: String) {
-
         var components = URLComponents()
         var queryItems = [URLQueryItem]()
 
