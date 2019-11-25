@@ -13,7 +13,7 @@ public extension URLRequest {
     #if DEBUG
     static var spotifyBaseURL: URL {
         if ProcessInfo().arguments.contains("UI-TESTING") {
-            return URL(string: "http://localhost")!
+            return URL(string: "http://localhost:8080")!
         } else {
             return URL(string: "https://api.spotify.com/v1/")!
         }
