@@ -22,10 +22,10 @@ public extension URLRequest {
     private static let spotifyBaseURL = URL(string: "https://api.spotify.com/v1/")
     #endif
 
-    init(spotifySearch queryString: String, limit: Int = 20, token: String) {
+    init(spotifySearch queryString: String, limit: Int = 20, wildCard: Bool = true, token: String) {
         var components = URLComponents()
         components.path = "search"
-        let searchQuery = URLQueryItem(name: "q", value: queryString)
+        let searchQuery = URLQueryItem(name: "q", value: queryString + (wildCard ? "*" : ""))
         let queryType = URLQueryItem(name: "type", value: "playlist,artist,album,track")
         let limit = URLQueryItem(name: "limit", value: "\(limit)")
         components.queryItems = [searchQuery, queryType, limit]
