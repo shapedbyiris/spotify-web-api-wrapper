@@ -85,3 +85,7 @@ public struct SpotifySearchResult: Codable {
         playlists = playlistContainer.items
     }
 }
+
+public struct SpotifyUserPlaylistsResults: Codable {
+    let items: [Playlist]
+}

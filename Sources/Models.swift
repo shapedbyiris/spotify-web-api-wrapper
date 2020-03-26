@@ -82,6 +82,7 @@ extension Album: Codable {
 public struct Playlist: SpotifyEntity {
     public let name: String
     public let spotifyURI: String
+    public let playlistID: String
     let images: [SpotifyImageContainer]?
     public var thumbnailImageURL: URL? {
         return images?.last?.url
@@ -96,6 +97,7 @@ extension Playlist: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case spotifyURI = "uri"
+        case playlistID = "id"
         case images
         case pagingObject = "tracks"
     }
@@ -104,6 +106,7 @@ extension Playlist: Codable {
         let results = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try results.decode(String.self, forKey: .name)
         self.spotifyURI = try results.decode(String.self, forKey: .spotifyURI)
+        self.playlistID = try results.decode(String.self, forKey: .playlistID)
         self.images = try? results.decode([SpotifyImageContainer].self, forKey: .images)
         self.pagingObject = try? results.decode(SpotifyPagingObject<Track>.self, forKey: .pagingObject)
     }

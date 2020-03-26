@@ -105,6 +105,18 @@ public extension URLRequest {
         self.allHTTPHeaderFields = authorisationHeader(token: token)
         self.httpMethod = .GET
     }
+
+    init(userPlaylists userID: String, token: String) {
+        var components = URLComponents()
+        components.path = "users/\(userID)/playlists"
+
+        let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
+
+        self.init(url: completeURL)
+
+        self.allHTTPHeaderFields = authorisationHeader(token: token)
+        self.httpMethod = .GET
+    }
 }
 
 private extension String {
