@@ -87,5 +87,5 @@ public struct SpotifySearchResult: Codable {
 }
 
 public struct SpotifyUserPlaylistsResults: Codable {
-    let items: [Playlist]
+    public let items: [Playlist]
 }
