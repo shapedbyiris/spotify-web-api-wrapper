@@ -117,6 +117,18 @@ public extension URLRequest {
         self.allHTTPHeaderFields = authorisationHeader(token: token)
         self.httpMethod = .GET
     }
+
+    init(myTopTracks token: String) {
+        var components = URLComponents()
+        components.path = "me/top/tracks"
+
+        let completeURL = components.url(relativeTo: URLRequest.spotifyBaseURL)!
+
+        self.init(url: completeURL)
+
+        self.allHTTPHeaderFields = authorisationHeader(token: token)
+        self.httpMethod = .GET
+    }
 }
 
 private extension String {
