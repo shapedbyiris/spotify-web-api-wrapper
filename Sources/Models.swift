@@ -118,7 +118,7 @@ public struct Track: SpotifyEntity {
     public var album: Album?
     private let miliseconds: Int
     public let spotifyURI: String
-    public let trackNumber: Int
+    public let spotifyTrackNumber: Int
 
     public var thumbnailImageURL: URL? {
         return album?.images?.last?.url
@@ -138,6 +138,6 @@ extension Track: Codable {
         case album
         case miliseconds = "duration_ms"
         case spotifyURI = "uri"
-        case trackNumber = "track_number"
+        case spotifyTrackNumber = "track_number"
     }
 }
