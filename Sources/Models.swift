@@ -92,7 +92,7 @@ public struct Playlist: SpotifyEntity {
     }
     public let pagingObject: SpotifyPagingObject<Track>?
 
-    let owner: String
+    public let owner: String
 }
 
 extension Playlist: Codable {
