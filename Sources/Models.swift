@@ -91,6 +91,8 @@ public struct Playlist: SpotifyEntity {
         return images?.first?.url
     }
     public let pagingObject: SpotifyPagingObject<Track>?
+
+    let owner: String
 }
 
 extension Playlist: Codable {
@@ -100,6 +102,7 @@ extension Playlist: Codable {
         case playlistID = "id"
         case images
         case pagingObject = "tracks"
+        case owner
     }
 
     public init(from decoder: Decoder) throws {
@@ -109,7 +112,14 @@ extension Playlist: Codable {
         self.playlistID = try results.decode(String.self, forKey: .playlistID)
         self.images = try? results.decode([SpotifyImageContainer].self, forKey: .images)
         self.pagingObject = try? results.decode(SpotifyPagingObject<Track>.self, forKey: .pagingObject)
+        let playlistOwnerContainer = try results.decode(PlaylistOwnerContainer.self, forKey: .owner)
+        self.owner = playlistOwnerContainer.display_name ?? playlistOwnerContainer.id
     }
+}
+
+struct PlaylistOwnerContainer: Codable {
+    let display_name: String? // swiftlint:disable:this identifier_name
+    let id: String // swiftlint:disable:this identifier_name
 }
 
 public struct Track: SpotifyEntity {
