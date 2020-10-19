@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - '*' # run every push
+    tags:
+      - '*' # run on every tag
+
+jobs:
+  primary:
+    name: Primary
+    runs-on: macOS-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Lint
+        run: curl https://raw.githubusercontent.com/shapedbyiris/swiftlint-config/master/swiftlint.yml --output lint_config.yml --silent --show-error && swiftlint lint --strict --config lint_config.yml
+
+      - name: Run unit tests
+        run: xcodebuild -scheme SpotifyWebAPI -destination 'platform=iOS Simulator,name=iPhone 11 Pro' test | xcpretty

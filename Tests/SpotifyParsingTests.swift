@@ -7,38 +7,19 @@
 //
 
 import XCTest
-
+import Foundation
 @testable import SpotifyWebAPI
+import SpotifyWebAPI
 
 //swiftlint:disable force_try line_length
 
 class SpotifyParsingTests: XCTestCase {
 
-    static func dataForJSONFileNamed(string: String) -> Data {
-
-        let podBundle = Bundle(for: self.classForCoder())
-        if let resourceBundleURL = podBundle.url(forResource: "SpotifyWebAPIJSONMocks", withExtension: "bundle") {
-            // find mock JSON files if bundled using Cocoapods:
-            let bundle = Bundle(url: resourceBundleURL)!
-            let jsonFileURL = bundle.url(forResource: string, withExtension: "json")!
-            let jsonFileData = try! Data(contentsOf: jsonFileURL)
-            return jsonFileData
-        } else {
-            // find mock JSON files if using Swift Package Manager:
-            let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-            let fileURL = currentDirectoryURL
-                .appendingPathComponent("Tests", isDirectory: true)
-                .appendingPathComponent("JSONMocks", isDirectory: true)
-                .appendingPathComponent(string)
-                .appendingPathExtension("json")
-            let jsonFileData = try! Data(contentsOf: fileURL)
-            return jsonFileData
-        }
-    }
-
     func testCorrectlyParsesMyTracks() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_tracks")
+            let url: URL = Bundle.module.url(forResource: "my_tracks", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(SpotifyPagingObject<Track>.self, from: data)
 
             let firstTrack = results.items[0]
@@ -57,7 +38,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesMyArtists() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_artists")
+            let url: URL = Bundle.module.url(forResource: "my_artists", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(SpotifyPagingObject<Artist>.self, from: data)
 
             let firstArtist = results.items[0]
@@ -73,7 +56,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesMyAlbums() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_albums")
+            let url: URL = Bundle.module.url(forResource: "my_albums", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(SpotifyPagingObject<Album>.self, from: data)
 
             let firstAlbum = results.items[0]
@@ -87,7 +72,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesMyPlaylists() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "my_playlists")
+            let url: URL = Bundle.module.url(forResource: "my_playlists", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(SpotifyPagingObject<Playlist>.self, from: data)
 
             let firstPlaylist = results.items[0]
@@ -103,7 +90,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesTopTracks() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "artist_top_tracks")
+            let url: URL = Bundle.module.url(forResource: "artist_top_tracks", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(TrackList.self, from: data)
 
             let firstTrack = results.tracks[0]
@@ -123,7 +112,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesPlaylist() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "playlist")
+            let url: URL = Bundle.module.url(forResource: "playlist", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(Playlist.self, from: data)
 
             guard let firstTrack = results.pagingObject?.items[0] else {
@@ -146,7 +137,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesTracksInAlbum() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "tracks_in_album")
+            let url: URL = Bundle.module.url(forResource: "tracks_in_album", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(Album.self, from: data)
 
             guard let secondTrack = results.tracks?[1] else {
@@ -172,7 +165,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesSearchResults() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "search_results_duranduran")
+            let url: URL = Bundle.module.url(forResource: "search_results_duranduran", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let results = try JSONDecoder().decode(SpotifySearchResult.self, from: data)
             XCTAssert(results.albums.count == 20)
 
@@ -221,7 +216,9 @@ class SpotifyParsingTests: XCTestCase {
 
     func testCorrectlyParsesError() {
         do {
-            let data = SpotifyParsingTests.dataForJSONFileNamed(string: "error_token_expired")
+            let url: URL = Bundle.module.url(forResource: "error_token_expired", withExtension: "json")!
+            let data = try! Data(contentsOf: url)
+
             let error = try JSONDecoder().decode(SpotifyError.self, from: data)
             XCTAssert(error.message == "The access token expired")
             XCTAssert(error.status == 401)
