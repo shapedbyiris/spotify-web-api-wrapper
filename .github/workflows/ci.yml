@@ -17,5 +17,8 @@ jobs:
       - name: Lint
         run: curl https://raw.githubusercontent.com/shapedbyiris/swiftlint-config/master/swiftlint.yml --output lint_config.yml --silent --show-error && swiftlint lint --strict --config lint_config.yml
 
+      - name: Build package
+        run: swift build
+
       - name: Run unit tests
         run: xcodebuild -scheme SpotifyWebAPI -destination 'platform=iOS Simulator,name=iPhone 11 Pro' test | xcpretty
