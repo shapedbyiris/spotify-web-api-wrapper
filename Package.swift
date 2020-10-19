@@ -1,4 +1,5 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
+
 import PackageDescription
 
 let package = Package(
@@ -25,7 +26,10 @@ let package = Package(
         .testTarget(
             name: "SpotifyWebAPITests",
             dependencies: ["SpotifyWebAPI"],
-            path: "Tests"
+            path: "Tests",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )
