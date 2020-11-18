@@ -19,7 +19,7 @@ public extension URLRequest {
         }
     }
     #else
-    private static let spotifyBaseURL = URL(string: "https://api.spotify.com/v1/")
+    static let spotifyBaseURL = URL(string: "https://api.spotify.com/v1/")
     #endif
 
     init(spotifySearch queryString: String, limit: Int = 20, wildCard: Bool = true, token: String) {
