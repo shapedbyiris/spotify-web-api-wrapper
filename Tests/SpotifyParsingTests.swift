@@ -5,13 +5,11 @@
 //  Created by Ariel Elkin on 18/07/2019.
 //  Copyright © 2019 IRIS. All rights reserved.
 //
+//swiftlint:disable force_try line_length
 
 import XCTest
 import Foundation
 @testable import SpotifyWebAPI
-import SpotifyWebAPI
-
-//swiftlint:disable force_try line_length
 
 class SpotifyParsingTests: XCTestCase {
 
